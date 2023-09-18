@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Tabuada</title>
 </head>
 <body>
 
@@ -19,14 +20,16 @@
 		<input type="submit" name="calcular" value="calcular">
 	</form>
 
-	<% Double resultado = (Double) request.getAttribute("resultado"); %>
+	<% List<String> resultado = (List<String>) request.getAttribute("resultado"); %>
 	
 	<h1>Resultado:</h1>
 	<ul>
-	<% if (resultado != null) {%>
-	<li><%=resultado%></li>
+	<% if (resultado != null) {
+		for (String mult : resultado) {	
+	%>
+	<li><%=mult%></li>
 
-	<%}%>
+	<%} }%>
 	</ul>
 
 </body>
